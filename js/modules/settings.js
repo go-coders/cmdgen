@@ -35,7 +35,13 @@ export const SettingsManager = {
   },
 
   reset() {
-    this.settings = { ...SETTINGS_DEFAULTS }
+    const currentSettings = this.get()
+    this.settings = {
+      ...SETTINGS_DEFAULTS,
+      // 保留 API Key 和 URL
+      apiKey: currentSettings.apiKey,
+      url: currentSettings.url,
+    }
     localStorage.setItem("settings", JSON.stringify(this.settings))
     // 更新历史记录显示
     $("#maxHistoryDisplay").text(SETTINGS_DEFAULTS.maxHistory)

@@ -1,5 +1,6 @@
 import { CommandGenerator } from "./command-generator.js"
 import { SettingsManager } from "./settings.js"
+import { SETTINGS_DEFAULTS } from "./constants.js"
 
 export const UI = {
   initializeTextarea() {
@@ -123,8 +124,18 @@ export const UI = {
 
       $(".cancel-button").on("click", () => this.hideSettings())
       $(".reset-button").on("click", () => {
-        SettingsManager.reset()
-        this.hideSettings()
+        const defaults = SETTINGS_DEFAULTS
+        const confirmMessage = `
+          确定要重置以下设置吗？
+          - Model：重置为 ${defaults.model}
+          - Temperature：重置为 ${defaults.temperature}
+          - Max History：重置为 ${defaults.maxHistory}
+          - System Prompt：重置为默认提示词
+        `
+        if (confirm(confirmMessage)) {
+          SettingsManager.reset()
+          this.hideSettings()
+        }
       })
     }
 
