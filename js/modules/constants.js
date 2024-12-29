@@ -46,8 +46,8 @@ JSON Response Format:
       "command": "command1 | command2",
       "explanations": [
         {
-          "name": "command1",
-          "description": "第一个命令的作用",
+          "name": "command",
+          "description": "命令的基本功能和用途",
           "parameters": [
             {
               "flag": "-flag",
@@ -61,7 +61,7 @@ JSON Response Format:
         },
         {
           "name": "command2",
-          "description": "第二个命令的作用",
+          "description": ""命令的基本功能和用途",
           "parameters": [
             {
               "flag": "-flag",
