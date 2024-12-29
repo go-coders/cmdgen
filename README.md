@@ -1,4 +1,4 @@
-# Linux 命令生成器
+# Linux 命令查询
 
 ![Linux Command Generator 效果展示](demo.png)
 
